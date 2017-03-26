@@ -24,7 +24,7 @@ class LaravelServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        if (function_exists('env') && ! env('REGISTER_WORKER_ROUTES', true)) return;
+        if (function_exists('config') && ! config('app.REGISTER_WORKER_ROUTES', true)) return;
 
         $this->bindWorker();
         $this->addRoutes();
